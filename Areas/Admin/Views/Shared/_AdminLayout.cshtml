@@ -53,89 +53,93 @@
     <!-- Main CSS-->
     <link href="~/ASSETS/admin/css/theme.css" rel="stylesheet" media="all">
 </head>
+
 <body class="template-index belle home8-jewellery">
+    <div id="pre-loader">
+        <img src="~/Asset/assets/images/loader.gif" alt="Loading..." />
+    </div>
     <div class="pageWrapper">
-       
-        <!--Top Header-->
+
+
         <div class="top-header home8-jewellery-top">
             <div class="container-fluid">
-                <div class="row" >
-                    <div class="col-sm-12 col-md-12 col-lg-12 d-none d-lg-none d-md-block d-lg-block" >
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 d-none d-lg-none d-md-block d-lg-block">
                         <div class="text-center"><p class="top-header_middle-text"> Quản Lý Hệ Thống</p></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--End Top Header-->
-        <!--Header-->
-        <div class="header-wrap animated d-flex border-bottom">
+
+        <div class="animated d-flex">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <!--Desktop Logo-->
                     <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
                         <a href="~/Admin/HomeAdmin/Index">
-                            <img src="~/ASSETS/admin/images/admin-login-sign-made-wood-table_292052-431.jpg" alt="Click để trở lại trang chủ" title="Click để trở lại trang chủ" />
+                            <img src="/Asset/assets/images/logo.jpg" alt="" title="" style="height:40px" />
                         </a>
                     </div>
-                    <!--End Desktop Logo-->
-                    <div class="col-2 col-sm-3 col-md-3 col-lg-9">
+                    <div class="col-2 col-sm-3 col-md-3 col-lg-8">
                         <div class="d-block d-lg-none">
                             <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
                                 <i class="icon anm anm-times-l"></i>
                                 <i class="anm anm-bars-r"></i>
                             </button>
                         </div>
-                        <!--Desktop Menu-->
-                        <nav class="grid__item" id="AccessibleNav">
-                            <!-- for mobile -->
+                        <nav class="grid__item" id="AccessibleNav" role="navigation">
                             <ul id="siteNav" class="site-nav medium center hidearrow">
-                                <li class="lvl1">
-                                    <a href="/Admin/HomeAdmin">Trang chủ <i class="anm anm-angle-down-l"></i></a>
+                                <li class="lvl1 parent megamenu">
+                                    <a href="~/Admin/HomeAdmin/Index" id="1">Trang chủ <i class="anm anm-angle-down-l"></i></a>
                                 </li>
-                                <li class="lvl1 ">
-                                    <a href="@Url.Action("Index", null, new { area = "Admin", controller = "CategoryAdmin"}, Request.Url.Scheme)">Danh mục <i class="anm anm-angle-down-l"></i></a>
+                                <li class="lvl1 parent megamenu">
+                                    <a href="~/Admin/CategoryAdmin/Index">Danh mục <i class="anm anm-angle-down-l"></i></a>
                                 </li>
-                                <li class="lvl1 ">
-                                    <a href="@Url.Action("Index", null, new { area = "Admin", controller = "UserData"}, Request.Url.Scheme)">Dữ liệu người dùng<i class="anm anm-angle-down-l"></i></a>
+                                <li class="lvl1 parent dropdown">
+                                    <a href="~/Admin/ProductAdmin/Index">Sản phẩm<i class="anm anm-angle-down-l"></i></a>
                                 </li>
-                                <li class="lvl1 ">
-                                    <a href="@Url.Action("Index", null, new { area = "Admin", controller = "OrderAdmin"}, Request.Url.Scheme)">Đơn hàng <i class="anm anm-angle-down-l"></i></a>
+                                <li class="lvl1 parent dropdown">
+                                    <a href="~/Admin/OrderAdmin/Index">Đơn hàng <i class="anm anm-angle-down-l"></i></a>
                                 </li>
-                                <li class="lvl1">
-                                    <a href="@Url.Action("Index", null, new { area = "Admin", controller = "ProductAdmin"}, Request.Url.Scheme)"><b>Sản phẩm</b> <i class="anm anm-angle-down-l"></i></a>
+                                <li class="lvl1 parent dropdown">
+                                    <a href="~/Admin/UserData/Index">Dữ liệu người dùng<i class="anm anm-angle-down-l"></i></a>
+                                </li>
+                                <li class="lvl1 parent dropdown">
+                                    <a href="~/Admin/CartShop/Index">Bán hàng<i class="anm anm-angle-down-l"></i></a>
                                 </li>
                             </ul>
                         </nav>
-                        <!--End Desktop Menu-->
                     </div>
-                    <!--Mobile Logo-->
-                    <div class="col-4 col-sm-3 col-md-3 col-lg-1">
-                        <div class="header-button">                          
+                    @{
+                        string user_role = "";
+                        string user_name = ViewBag.user_name;
+                        string user_gmail = ViewBag.user_logined; 
+                        if (user_gmail == "ADMIN")
+                        {
+                            user_role = "Quản trị viên";
+                            user_name = "Quản trị viên";
+                        }
+                        else if (user_gmail == "EMPLOYEE")
+                        {
+                            user_role = "Nhân viên";
+                        }
+                        <div class="col-2 col-sm-3 col-md-3 col-lg-2 d-none d-lg-block">
                             <div class="account-wrap">
-                                <div class="account-item clearfix js-item-menu">
-                                    <div class="image">
-                                        <img src="/Asset/admin/images/icon/avatar-01.jpg" alt="John Doe" />
-                                    </div>
+                                <div class="account-item account-item--style2 clearfix js-item-menu">
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">Admin</a>
+                                        <a class="js-acc-btn" href="#">Xin chào @user_name</a>
                                     </div>
-                                    <div class="account-dropdown js-dropdown">
+                                    <div class="account-dropdown js-dropdown" style="z-index:300">
                                         <div class="info clearfix">
-                                            <div class="image">
-                                                <a href="#">
-                                                    <img src="/Asset/admin/images/icon/avatar-01.jpg" alt="John Doe" />
-                                                </a>
-                                            </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">Quản trị viên</a>
+                                                    <a href="#">@user_role</a>
                                                 </h5>
-                                                <span class="email">admin@gmail.com</span>
+                                                <span class="email">@user_gmail</span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
                                             <div class="account-dropdown__item">
-                                                <a href="@Url.Action("UserInfor", null, new { area = "Admin", controller = "UserData"}, Request.Url.Scheme)">
+                                                <a href="#">
                                                     <i class="zmdi zmdi-account"></i>Tài khoản
                                                 </a>
                                             </div>
@@ -144,14 +148,9 @@
                                                     <i class="zmdi zmdi-settings"></i>Cài đặt
                                                 </a>
                                             </div>
-                                            <div class="account-dropdown__item">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-money-box"></i>aa
-                                                </a>
-                                            </div>
                                         </div>
                                         <div class="account-dropdown__footer">
-                                            <a href="/Login/Login">
+                                            <a href="~/Sales/Login/Logout">
                                                 <i class="zmdi zmdi-power"></i>Đăng xuất
                                             </a>
                                         </div>
@@ -159,79 +158,77 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    }
+
+
                 </div>
             </div>
         </div>
-        <!--End Header-->
-        <!--Body Content-->
+        <div class="mobile-nav-wrapper" role="navigation">
+            <div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
+            <ul id="MobileNav" class="mobile-nav">
+                <li class="lvl1 parent megamenu">
+                    <a href="~/Admin/HomeAdmin/Index">Trang chủ <i class="anm anm-plus-l"></i></a>
+                </li>
+                <li class="lvl1 parent megamenu">
+                    <a href="~/Admin/Category/Index">Danh mục <i class="anm anm-plus-l"></i></a>
+                </li>
+                <li class="lvl1 parent megamenu">
+                    <a href="~/Admin/ProductAdmin/Index">Sản phẩm <i class="anm anm-plus-l"></i></a>
+                </li>
+                <li class="lvl1 parent megamenu">
+                    <a href="~/Admin/Order/Index">Đơn hàng <i class="anm anm-plus-l"></i></a>
+                </li>
+                <li class="lvl1 parent megamenu">
+                    <a href="~/Admin/UserData/Index">Dữ liệu người dùng <i class="anm anm-plus-l"></i></a>
+                </li>
+            </ul>
+        </div>
         <div id="page-content">
-
             @RenderBody()
         </div>
-        <!--End Body Content-->
-        <!--Footer-->
         <footer id="footer" class="footer-3">
             <div class="site-footer">
                 <div class="container">
-                    <hr>
                     <div class="footer-bottom">
                         <div class="row">
-                            <!--Footer Copyright-->
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 copyright text-center"><span></span> <a href="/Admin/HomeAdmin/Index">Trang chủ</a></div>
-                            <!--End Footer Copyright-->
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 copyright text-center"><span></span> <a href="~/Admin/HomeAdmin">Trang chủ</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
-        <!--End Footer-->
-        <!--Scoll Top-->
-        <span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
-        <!--End Scoll Top-->   
-     
-        <!-- Including Jquery -->
-        <script src="~/Asset/assets/js/vendor/jquery-3.3.1.min.js"></script>
-        <script src="~/Asset/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-        <script src="~/Asset/assets/js/vendor/jquery.cookie.js"></script>
-        <script src="~/Asset/assets/js/vendor/wow.min.js"></script>
-        <script src="~/Asset/assets/js/vendor/masonry.js"></script>
-        <!-- Including Javascript -->
-        <script src="~/Asset/assets/js/bootstrap.min.js"></script>
-        <script src="~/Asset/assets/js/plugins.js"></script>
-        <script src="~/Asset/assets/js/popper.min.js"></script>
-        <script src="~/Asset/assets/js/lazysizes.js"></script>
-        <script src="~/Asset/assets/js/main.js"></script>
-        <!--For Newsletter Popup-->
-       
 
-        <!-- Jquery JS-->
-        <script src="~/ASSETS/admin/vendor/jquery-3.2.1.min.js"></script>
-        <!-- Bootstrap JS-->
-        <script src="~/ASSETS/admin/vendor/bootstrap-4.1/popper.min.js"></script>
-        <script src="~/ASSETS/admin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-        <!-- Vendor JS       -->
-        <script src="~/ASSETS/admin/vendor/slick/slick.min.js">
-        </script>
+        <span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
+
+        <script src="~/ASSETS/js/vendor/jquery-3.3.1.min.js"></script>
+        <script src="~/ASSETS/js/vendor/modernizr-3.6.0.min.js"></script>
+        <script src="~/ASSETS/js/vendor/jquery.cookie.js"></script>
+        <script src="~/ASSETS/js/vendor/wow.min.js"></script>
+        <script src="~/ASSETS/js/vendor/masonry.js"></script>
+
+        <script src="~/ASSETS/js/bootstrap.min.js"></script>
+        <script src="~/ASSETS/js/plugins.js"></script>
+        <script src="~/ASSETS/js/popper.min.js"></script>
+        <script src="~/ASSETS/js/lazysizes.js"></script>
+        <script src="~/ASSETS/js/main.js"></script>
+
+        <script src="~/ASSETS/admin/vendor/slick/slick.min.js"></script>
         <script src="~/ASSETS/admin/vendor/wow/wow.min.js"></script>
         <script src="~/ASSETS/admin/vendor/animsition/animsition.min.js"></script>
-        <script src="~/ASSETS/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-        </script>
+        <script src="~/ASSETS/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
         <script src="~/ASSETS/admin/vendor/counter-up/jquery.waypoints.min.js"></script>
-        <script src="~/ASSETS/admin/vendor/counter-up/jquery.counterup.min.js">
-        </script>
+        <script src="~/ASSETS/admin/vendor/counter-up/jquery.counterup.min.js"></script>
         <script src="~/ASSETS/admin/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="~/ASSETS/admin/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
         <script src="~/ASSETS/admin/vendor/chartjs/Chart.bundle.min.js"></script>
-        <script src="~/ASSETS/admin/vendor/select2/select2.min.js">
-        </script>
+        <script src="~/ASSETS/admin/vendor/select2/select2.min.js"></script>
 
-        <!-- Main JS-->
         <script src="~/ASSETS/admin/js/main.js"></script>
 
-        <!--End For Newsletter Popup-->
     </div>
 </body>
+
 
 <!-- belle/home6-modern.html   11 Nov 2019 12:28:16 GMT -->
 </html>
