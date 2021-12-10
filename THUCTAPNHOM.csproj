@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CartShopController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderAdminController.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Models2\Data.cs" />
     <Compile Include="Models2\GlobalVariables.cs" />
     <Compile Include="Models2\ItemInCart.cs" />
+    <Compile Include="Models2\ITEM_SOLD.cs" />
     <Compile Include="Models2\MEMBER.cs" />
     <Compile Include="Models2\PRODUCT.cs" />
     <Compile Include="Models2\PRODUCT_GROUP.cs" />
@@ -605,6 +607,7 @@
     <Content Include="ASSETS\admin\vendor\slick\slick-theme.scss" />
     <Content Include="ASSETS\admin\vendor\slick\slick.less" />
     <Content Include="ASSETS\admin\vendor\slick\slick.scss" />
+    <Content Include="Areas\Admin\Views\CartShop\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
