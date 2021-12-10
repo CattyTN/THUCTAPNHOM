@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;    
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -14,11 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/ASSETS/admin/assets/images/favicon.png" />
-    <!-- Plugins CSS -->
     <link rel="stylesheet" href="~/ASSETS/css/plugins.css">
-    <!-- Bootstap CSS -->
     <link rel="stylesheet" href="~/ASSETS/css/bootstrap.min.css">
-    <!-- Main Style CSS -->
     <link rel="stylesheet" href="~/ASSETS/css/style.css">
     <link rel="stylesheet" href="~/ASSETS/css/responsive.css">
 
@@ -51,13 +48,10 @@
     <link href="~/ASSETS/admin/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="~/ASSETS/admin/css/theme.css" rel="stylesheet" media="all">
+    <link href="~/ASSETS/css/theme.css" rel="stylesheet" media="all">
 </head>
 
 <body class="template-index belle home8-jewellery">
-    <div id="pre-loader">
-        <img src="~/Asset/assets/images/loader.gif" alt="Loading..." />
-    </div>
     <div class="pageWrapper">
 
 
@@ -110,15 +104,20 @@
                         </nav>
                     </div>
                     @{
+                        <!--User_logined là username tức là gmail
+                            user_name là tên người đăng nhập
+                            user_role là quyền người đăng nhập
+                            
+                            -->
                         string user_role = "";
                         string user_name = ViewBag.user_name;
-                        string user_gmail = ViewBag.user_logined; 
-                        if (user_gmail == "ADMIN")
+                        string user_gmail = ViewBag.user_logined;
+                        if (user_gmail == "admin@gmail.com")
                         {
                             user_role = "Quản trị viên";
                             user_name = "Quản trị viên";
                         }
-                        else if (user_gmail == "EMPLOYEE")
+                        else
                         {
                             user_role = "Nhân viên";
                         }

@@ -60,6 +60,7 @@ namespace THUCTAPNHOM.Areas.Sales.Controllers
                 Mix_PRODUCT_And_PRODUCT_Plus(product1list, productpluslist);
                 if (result[0].role == 0)
                 {
+                    ViewBag.user_role = 1;
                     return View("~/Areas/Admin/Views/HomeAdmin/Index.cshtml");
                 }
                 return View("~/Areas/Sales/Views/Home/Home.cshtml", productpluslist);
